@@ -27,7 +27,10 @@ require_once "ArmaParser.php";
 <br><br>
 <div class="container">
     <h1>Slotliste erstellen</h1>
-    <h4>Nach dem TF133 Muster</h4>
+    <h4>Nach dem <a href="https://tf133.de/forum/index.php?thread/1224-vorlage-missionsthread-nutzung-pflicht/" target="_blank">TF133 Muster</a></h4>
+    <hr>
+    
+    <hr>
     <form method="post" action="" enctype="multipart/form-data">
         <div class="mb-3">
             <label class="form-label" for="file">Mission.sqm hochladen</label>
@@ -73,6 +76,18 @@ require_once "ArmaParser.php";
         }
     }
     ?>
+    <br><br><br><br>
+    <hr>
+    <figure>
+        <blockquote class="blockquote">
+            <p>Mir geht es auf den Sack, immer diese Tabelle (Slotliste) im Forum per Hand zu machen!</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            Ein aufgebrachter <cite title="Source Title">Isaac</cite>
+        </figcaption>
+    </figure>
+    <hr>
+    <p class="text-center text-muted">Erstellt durch <a href="https://tf133.de/index.php?user/135-isaac/" target="_blank">Isaac</a> | <a href="https://github.com/TFWIsaac/PHP-SQM-Parser" target="_blank">GitHub</a></p>
 </div>
 </body>
 </html>
