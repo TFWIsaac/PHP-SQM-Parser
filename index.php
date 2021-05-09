@@ -46,16 +46,16 @@ require_once "ArmaParser.php";
             if ($fileType != "sqm") {
                 return ['result' => 'false', 'message' => 'Falsche Dateiendung'];
             }
-            if ($_FILES["file"]["size"] > 1000000) {
+            if ($_FILES["file"]["size"] > 2000000) {
                 return ['result' => 'false', 'message' => 'Datei zu groß'];
             }
         }
         $validation = validateForm();
         if (is_array($validation) and array_key_exists('result', $validation)) {
-            $message = '<div class="alert alert-danger" role="alert">Fehler aufgetreten: '.$validation['message'].' Seite Neuladen!</div>';
+            $message = '<br><br><div class="alert alert-danger" role="alert">Fehler aufgetreten: '.$validation['message'].' Seite Neuladen!</div>';
             exit($message);
         }
-        $handle = fopen($_FILES['file']['name'], "r");
+        $handle = fopen($_FILES['file']['tmp_name'], "rb");
         if ($handle) {
             $tmpArray = [];
             $resultArray = [];
@@ -72,7 +72,7 @@ require_once "ArmaParser.php";
             $table = $ap->createTable($slotliste);
             echo $table;
         } else {
-            exit('<div class="alert alert-danger" role="alert">Es ist ein Fehler beim Lesen der Datei aufgetreten.</div>');
+            exit('<br><br><div class="alert alert-danger" role="alert">Es ist ein Fehler beim Lesen der Datei aufgetreten.</div>');
         }
     }
     ?>
