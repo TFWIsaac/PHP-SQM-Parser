@@ -29,7 +29,7 @@ require_once "ArmaParser.php";
     <h1>Slotliste erstellen</h1>
     <h4>Nach dem <a href="https://tf133.de/forum/index.php?thread/1224-vorlage-missionsthread-nutzung-pflicht/" target="_blank">TF133 Muster</a></h4>
     <hr>
-    Anleitung dazu im Forum.
+    Anleitung wie man den Generator benutzt, findet ihr im <a href="https://tf133.de/forum/index.php?thread/1381-slotlist-generator/&postID=7591#post7591" target="_blank"> Forum</a>.
     <hr>
     <form method="post" action="" enctype="multipart/form-data">
         <div class="mb-3">

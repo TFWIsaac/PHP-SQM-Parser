@@ -1,14 +1,30 @@
 <?php
 
-
+/**
+ * Class ArmaParser
+ * @author Isaac
+ */
 class ArmaParser
 {
+    /**
+     * @var string[]
+     */
     private $colors = [
         'group' => "#4682B4",
         'freeSlot' => "#00FF00",
     ];
+
+    /**
+     * @var string
+     */
     private $groupChar = "@";
 
+    /**
+     * reformts the subarrays keys and reset them keys 0 and 1
+     * @param array $playableData
+     * @return array
+     * @author Isaac
+     */
     public function reformatData(array $playableData)
     {
         $slotlistArray = [];
@@ -21,6 +37,13 @@ class ArmaParser
         return $slotlistArray;
     }
 
+    /**
+     * creates the table based on the slotlist array
+     * At this point everybody can edit these lines for their own style
+     * @param array $slotlistArray
+     * @return string
+     * @author Isaac
+     */
     public function createTable(array $slotlistArray)
     {
         $table = "<table><tbody>";
@@ -42,14 +65,19 @@ class ArmaParser
         return $this->createTableView($table);
     }
 
+    /**
+     * Puts the created Table into an inputfield.
+     * @param $table
+     * @return string
+     * @author Isaac
+     */
     public function createTableView($table)
     {
-        $view = '<br><br><div class="alert alert-success" role="alert">
+       return '<br><br><div class="alert alert-success" role="alert">
                     Die Slotliste wurde erfolgreich gelesen! Das Ergebnis kann unten kopiert werden.
                     </div><div class="mb-3">
                     <label for="view" class="form-label">Mit der Maus ins Feld klicken, STRG + A drücken und alles kopieren</label>
                     <textarea class="form-control" id="view" rows="5">'.$table.'</textarea>
                     </div>';
-            return $view;
     }
 }
