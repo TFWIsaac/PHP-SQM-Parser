@@ -1,5 +1,5 @@
 # PHP-SQM-Parser
-PHP Parser to create html slotlists based on the mission.sqm
+PHP Parser to create html slotlists based on the (not binarized) mission.sqm
 
 ## Usage
 Simply run the index.php at your webbrowser.

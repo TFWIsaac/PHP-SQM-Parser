@@ -33,7 +33,7 @@ require_once "ArmaParser.php";
     <hr>
     <form method="post" action="" enctype="multipart/form-data">
         <div class="mb-3">
-            <label class="form-label" for="file">Mission.sqm hochladen</label>
+            <label class="form-label" for="file">(Nicht binarisierte) Mission.sqm hochladen</label>
             <input type="file" class="form-control" id="file" name="file" accept=".sqm" required/>
             <div id="missionsqmfile" class="form-text">Wir werden deine Mission nach allen spielbaren Slots durchsuchen!</div>
         </div>
