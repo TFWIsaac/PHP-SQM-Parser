@@ -30,8 +30,10 @@ class ArmaParser
         $slotlistArray = [];
         foreach ($playableData as $item) {
             $item = array_values($item);
-            if (preg_match('/"([^"]+)"/', $item[0], $m)) {
+            if (preg_match('/^description="([A-Za-z0-9@\s]+)";$/', $item[0], $m)) {
                 $slotlistArray[] = $m[1];
+            } else {
+                $slotlistArray[] = "Keine Slotbeschreibung gefunden!";
             }
         }
         return $slotlistArray;
