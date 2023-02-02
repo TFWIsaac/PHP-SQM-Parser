@@ -27,9 +27,9 @@ require_once "ArmaParser.php";
 <br><br>
 <div class="container">
     <h1>Slotliste erstellen</h1>
-    <h4>Nach dem <a href="https://tf133.de/forum/index.php?thread/1224-vorlage-missionsthread-nutzung-pflicht/" target="_blank">TF133 Muster</a></h4>
+    <h4>Nach dem TTT Muster</h4>
     <hr>
-    Anleitung wie man den Generator benutzt, findet ihr im <a href="https://tf133.de/forum/index.php?thread/1381-slotlist-generator/&postID=7591#post7591" target="_blank"> Forum</a>.
+    Anleitung wie man den Generator benutzt, findet ihr im Github.
     <hr>
     <form method="post" action="" enctype="multipart/form-data">
         <div class="mb-3">
@@ -87,7 +87,7 @@ require_once "ArmaParser.php";
         </figcaption>
     </figure>
     <hr>
-    <p class="text-center text-muted">Erstellt durch <a href="https://tf133.de/index.php?user/135-isaac/" target="_blank">Isaac</a> | <a href="https://github.com/TFWIsaac/PHP-SQM-Parser" target="_blank">GitHub</a></p>
+    <p class="text-center text-muted">Erstellt durch <a href="https://github.com/TFWIsaac" target="_blank">Isaac</a> | <a href="https://github.com/TFWIsaac/PHP-SQM-Parser" target="_blank">GitHub</a></p>
 </div>
 </body>
 </html>

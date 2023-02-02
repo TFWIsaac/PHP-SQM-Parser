@@ -30,7 +30,7 @@ class ArmaParser
         $slotlistArray = [];
         foreach ($playableData as $item) {
             $item = array_values($item);
-            if (preg_match('/^description="([A-Za-z0-9@\s]+)";$/', $item[0], $m)) {
+            if (preg_match('/^description="([äöüÄÖÜA-Za-z0-9@\s-]+)";$/', $item[0], $m)) {
                 $slotlistArray[] = $m[1];
             } else {
                 $slotlistArray[] = "Keine Slotbeschreibung gefunden!";
@@ -48,23 +48,36 @@ class ArmaParser
      */
     public function createTable(array $slotlistArray)
     {
-        $table = "<table><tbody>";
+        $tmpGroup = [];
+        $slotlist = [];
         $counter = 1;
         foreach ($slotlistArray as $slot) {
-            $group = false;
-            $groupName = null;
             if (strpos($slot, $this->groupChar) !== false) {
-                $group = true;
-                $groupName = substr($slot, strpos($slot, $this->groupChar) + 1);
+                $slotlist[] = $tmpGroup;
+                $tmpGroup = [];
+                $tmpGroup[] = trim(substr($slot, strpos($slot, $this->groupChar) + 1));
+                $tmpGroup[] = trim(strtok($slot, $this->groupChar));
+            } else {
+                $tmpGroup[] = trim($slot);
             }
-            if ($group === true) {
-                $table .= '<tr><td><span style="color:'.$this->colors["group"].';"><strong>'.$groupName.'</strong></span></td><td></td></tr>';
-            }
-            $table .= "<tr><td>#".$counter." ".$slot."</td><td><span style='color:".$this->colors["freeSlot"]."'>Frei</span></td></tr>";
-            $counter = $counter + 1;
         }
-        $table .= "</tbody></table>";
-        return $this->createTableView($table);
+        $slotlist[] = $tmpGroup;
+        return $this->createTableView($this->createView(array_filter($slotlist)));
+    }
+
+    private function createView($slotlist)
+    {
+        $view = "";
+        foreach ($slotlist as $slotgroup) {
+            $view .= '<p><strong>Trupp "' . $slotgroup[0] . '"</strong></p>';
+            unset($slotgroup[0]);
+            $view .= '<ol>';
+            foreach ($slotgroup as $key=>$slot) {
+                $view .= '<li>' . $slot . '</li>';
+            }
+            $view .= '</ol>';
+        }
+        return $view;
     }
 
     /**
@@ -76,7 +89,7 @@ class ArmaParser
     public function createTableView($table)
     {
        return '<br><br><div class="alert alert-success" role="alert">
-                    Die Slotliste wurde erfolgreich gelesen! Das Ergebnis kann unten kopiert werden.
+                    Die Slotliste wurde erfolgreich gelesen! Das Ergebnis kann unten kopiert werden. WICHTIG: Im Forum bitte im Quellcode Modus einfügen!
                     </div><div class="mb-3">
                     <label for="view" class="form-label">Mit der Maus ins Feld klicken, STRG + A drücken und alles kopieren</label>
                     <textarea class="form-control" id="view" rows="5">'.$table.'</textarea>
